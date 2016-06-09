@@ -1,0 +1,218 @@
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+  <title>Team ShellStack</title>
+
+  <style type="text/css">
+
+    body * {
+      margin: 0; padding: 0;
+    }
+
+    .container {
+      padding: 20px;
+      margin-left: auto; margin-right: auto;  margin-top:50px;
+      width: 513px; /*was 510*/
+      /*these two properties will be inherited by .portfolio h2 and .portfolio p */
+      font-family: arial, serif; 
+      text-align: center;
+      }
+      
+    .container h2 {
+      clear: both;
+      font-size: 35px;
+      font-weight: normal;
+      color: #58595b;
+      }
+      
+    .container p {
+      font-size: 15px;
+      color: #58595b;
+      }
+
+    /*Style the DIV*/
+    .container .box{
+      width: 180px;
+      float: left; 
+      margin: 2px;
+      padding: 5px;
+      border: 1px solid #ccc;
+      text-align: center;
+    }
+
+    /*Fade all the DIV when user hovers on any div*/
+    /*.container:hover .box
+    {
+      zoom: 1;
+      filter: alpha(opacity=45);
+      opacity: 0.45;
+      -webkit-transition: opacity .5s ease-in-out;
+      -moz-transition: opacity .5s ease-in-out;
+      -ms-transition: opacity .5s ease-in-out;
+      -o-transition: opacity .5s ease-in-out;
+      transition: opacity .5s ease-in-out;
+    }*/
+
+    /*Highlight the particular DIV when user hover on that DIV*/
+
+    .container .box:hover,
+    .active .box
+    {
+      box-shadow: 3px 3px 15px #666;
+      border-color:#4AA02C;
+      background: #4AA02C;
+      color: #fff;
+      cursor: pointer;
+      
+      /*Opacity*/
+      zoom: 1;
+      filter: alpha(opacity=100);
+      opacity: 1;
+    }
+
+    .fail .box
+    {
+      box-shadow: 3px 3px 15px #666;
+      border-color:#F62817;
+      background: #F62817;
+      color: #fff;
+      cursor: pointer;
+      
+      /*Opacity*/
+      zoom: 1;
+      filter: alpha(opacity=100);
+      opacity: 1;
+    }
+  </style>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      $('#btnDev').click(function() { setDev(); });
+      $('#btnSrcControl').click(function() { setSrcControl(); });
+      $('#btnTest').click(function() { setTest(); });
+      $('#btnRegistry').click(function() { setRegistry(); });
+      $('#btnDeploy').click(function() { setDeploy(); });
+      $('#btnCloud').click(function() { setCloud(); });
+      $('#btnFail').click(function() { setFail(); });
+    });
+
+    // Functions to set the workflow step
+    function setDev() {
+      $('.container .list .active').removeClass('active');
+      $('#test').removeClass('fail');
+      $('#dev').addClass('active');
+    }
+
+    function setSrcControl() {
+      $('.container .list .active').removeClass('active');
+      $('#test').removeClass('fail');
+      $('#srcControl').addClass('active');
+    }
+
+    function setTest() {
+      $('.container .list .active').removeClass('active');
+      $('#test').removeClass('fail');
+      $('#test').addClass('active');
+    }
+
+    function setFail() {
+      $('.container .list .active').removeClass('active');
+      $('#test').removeClass('fail');
+      $('#test').addClass('fail');
+    }
+
+    function setRegistry() {
+      $('.container .list .active').removeClass('active');
+      $('#test').removeClass('fail');
+      $('#registry').addClass('active'); 
+    }
+
+    function setDeploy() {
+      $('.container .list .active').removeClass('active');
+      $('#test').removeClass('fail');
+      $('#deploy').addClass('active'); 
+    }
+
+    function setCloud() {
+      $('.container .list .active').removeClass('active');
+      $('#test').removeClass('fail');
+      $('#cloud').addClass('active'); 
+    }
+
+    // Spikes: automatic selection
+    /*function testActive() {
+      if ($('.container .list .active').next().length) {
+          $('.container .list .active').next().addClass('active').end().removeClass('active');
+      } else {
+          $('.container .list .active').removeClass('active');
+          $('.container .list li:first-child').addClass('active');
+      }
+    }
+    setInterval(testActive, 1000);*/
+  </script>
+
+</head>
+<body>
+
+  <div class="container">
+    <h2>The DevOps Automated Continuous Delivery Workflow</h2>
+    <p>Utilizing Docker Containers and Cloud Services</p>
+    <br />
+
+    <ul class="list">
+      <li id="dev">
+        <div class="box">
+          <img src="wfgrid_images/app.jpg">
+          <p>Lorem ipsum dolor sit amet.</p>
+          <!--<p>Developer Code</p><p>Local Workstation</p>-->
+        </div>
+      </li>
+      <li id="srcControl">
+        <div class="box">
+          <img src="wfgrid_images/repo.jpg">
+          <p>Lorem ipsum dolor sit amet.</p>
+          <!--<p>Source Control</p><p>GitHub</p>-->
+        </div>
+      </li>
+      <li id="test">
+        <div class="box">
+          <img src="wfgrid_images/test.jpg">
+          <p>Lorem ipsum dolor sit amet.</p>
+          <!--<p>Testing</p><p>CircleCI</p>-->
+        </div>
+      </li>
+      <li id="registry">
+        <div class="box">
+          <img src="wfgrid_images/registry.jpg">
+          <p>Lorem ipsum dolor sit amet.</p>
+          <!--<p>Image Registry</p><p>DockerHub</p>-->
+        </div>
+      </li>
+      <li id="deploy">
+        <div class="box">
+          <img src="wfgrid_images/deploy.jpg">
+          <p>Lorem ipsum dolor sit amet.</p>
+          <!--<p>Deployment</p><p>DockerCloud</p>-->
+        </div>
+      </li>
+      <li id="cloud">
+        <div class="box">
+          <img src="wfgrid_images/cluster.jpg">
+          <p>Lorem ipsum dolor sit amet.</p>
+          <!--<p>Cloud</p><p>Digital Ocean<br />Microsoft Azure<br />Amazon Web Services</p>-->
+        </div>
+      </li>
+    </ul>
+
+   <button id="btnDev">Dev</button>
+   <button id="btnSrcControl">Source Control</button>
+   <button id="btnTest">Test</button>
+   <button id="btnRegistry">Registry</button>
+   <button id="btnDeploy">Deploy</button>
+   <button id="btnCloud">Cloud</button>
+   <button id="btnFail">Failed Test</button>
+
+ </div>
+</body>
+</html>
